@@ -24,12 +24,4 @@ bot.add_cog(ViewsCog(bot))
 ## RUN BOT ##
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
-# people = getPeople()
-# firstPerson = people[0]
-# print(firstPerson.data)
-# print(firstPerson.getBalance())
-# print(firstPerson.addBalance(10))
-# print(firstPerson.getBalance())
-# print(addBalanceToPerson(firstPerson, 10))
-# print(firstPerson.getBalance())
 bot.run(TOKEN)
