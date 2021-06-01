@@ -9,7 +9,7 @@ class ViewsCog(commands.Cog):
         self.bot = bot
 
     @commands.command(aliases=["bal"], help="Show Balance")
-    async def showBalance(self, ctx, member : discord.Member=None):
+    async def balance(self, ctx, member : discord.Member=None):
         if member is not None:
             person = DataAccess.getPersonByID(member.id)
         else:

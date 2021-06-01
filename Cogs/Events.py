@@ -11,3 +11,14 @@ class EventsCog(commands.Cog):
         for member in self.bot.get_all_members():
             if not member.bot and DataAccess.getPersonByID(member.id) == None:
                 DataAccess.addPersonByID(member.id)
+
+    @commands.command(aliases=["p"], help="Pay Balance")
+    async def pay(self, ctx, member : discord.Member):
+        if member is not ctx.author:
+            person = DataAccess.getPersonByID(member.id)
+            person2 = DataAccess.getPersonByID(ctx.author.id)
+
+        DataAccess.addBalanceToPerson(person, 10)
+        DataAccess.removeBalanceFromPerson(person2, 10)
+    
+    
