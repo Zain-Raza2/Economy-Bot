@@ -13,12 +13,22 @@ class EventsCog(commands.Cog):
                 DataAccess.addPersonByID(member.id)
 
     @commands.command(aliases=["p"], help="Pay Balance")
-    async def pay(self, ctx, member : discord.Member):
+    async def pay(self, ctx, member : discord.Member, amount):
+        Paymentamount = int(amount)
         if member is not ctx.author:
             person = DataAccess.getPersonByID(member.id)
             person2 = DataAccess.getPersonByID(ctx.author.id)
+        
+        if Paymentamount < int(person2.getBalance()) and Paymentamount > int(0):
+            DataAccess.addBalanceToPerson(person, Paymentamount)
+            DataAccess.removeBalanceFromPerson(person2, Paymentamount)
+    
+        embed = discord.Embed(
+            title = "New balance is",
+            description = str(person.getBalance()),
+            colour = discord.Colour.purple()
+        )
 
-        DataAccess.addBalanceToPerson(person, 10)
-        DataAccess.removeBalanceFromPerson(person2, 10)
-    
-    
+        embed.set_author(name=str(member.display_name), icon_url=member.avatar_url)
+
+        await ctx.send(embed=embed)
