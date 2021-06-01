@@ -21,6 +21,6 @@ class ViewsCog(commands.Cog):
             colour = discord.Colour.purple()
         )
 
-        embed.set_author(name="ctx.author.name", icon_url="https://cdn.discordapp.com/attachments/844530307097034793/848232691228082237/ac12ec883e661479df80b227fe18bf1e.png")
+        embed.set_author(name=str(member.display_name), icon_url=member.avatar_url)
 
         await ctx.send(embed=embed)
