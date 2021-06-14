@@ -13,7 +13,7 @@ def getPersonByID(personID):
             return person
 
 def addPersonByID(newPersonID):
-    template = {"PersonID": newPersonID, "Balance": 400, "XP": 0}
+    template = {"PersonID": newPersonID, "Balance": 420, "XP": 0}
 
     data.append(template)
     saveData()

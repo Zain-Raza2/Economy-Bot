@@ -9,6 +9,7 @@ from Utilities.DataAccess import addBalanceToPerson
 ## IMPORT COGS ##
 from Cogs.Events import EventsCog
 from Cogs.Views import ViewsCog
+from Cogs.Minigames import MinigamesCog
 
 ## INTENTS ##
 intents = discord.Intents.default()
@@ -20,6 +21,7 @@ bot = commands.Bot(command_prefix="$", intents=intents)
 ## ADD COGS ##
 bot.add_cog(EventsCog(bot))
 bot.add_cog(ViewsCog(bot))
+bot.add_cog(MinigamesCog(bot))
 
 ## RUN BOT ##
 load_dotenv()

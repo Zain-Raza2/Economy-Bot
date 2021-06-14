@@ -22,5 +22,6 @@ class ViewsCog(commands.Cog):
         )
 
         embed.set_author(name=str(member.display_name), icon_url=member.avatar_url)
+        embed.set_thumbnail(url="https://tenor.com/view/money-countingmoney-gif-6053223")
 
         await ctx.send(embed=embed)
