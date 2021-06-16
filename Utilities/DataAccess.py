@@ -32,6 +32,10 @@ def setBalanceToPerson(person, setBalance):
     person.setBalance(setBalance)
     saveData()
 
+def isPaymentValid(balance, PaymentAmount):
+    if PaymentAmount < int(balance) and PaymentAmount > 0:
+        return True
+
 ## XP ##
 def addXPToPerson(person, newXP):
     person.addXP(newXP)

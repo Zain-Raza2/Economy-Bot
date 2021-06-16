@@ -15,12 +15,7 @@ class ViewsCog(commands.Cog):
         else:
             person = DataAccess.getPersonByID(ctx.author.id)
 
-        embed = discord.Embed(
-            title = "Balance is",
-            description = str(person.getBalance()),
-            colour = discord.Colour.purple()
-        )
-
+        embed = discord.Embed(title = "Balance is", description = str(person.getBalance()), colour = discord.Colour.purple())
         embed.set_author(name=str(member.display_name), icon_url=member.avatar_url)
         embed.set_thumbnail(url="https://tenor.com/view/money-countingmoney-gif-6053223")
 

@@ -21,21 +21,15 @@ class MinigamesCog(commands.Cog):
                 print(result)
                 if result == 'Heads':
                     winner = member
-                    DataAccess.addBalanceToPerson(person, Paymentamount*2)
+                    DataAccess.addBalanceToPerson(person, Paymentamount)
                     DataAccess.removeBalanceFromPerson(person2, Paymentamount)
 
                 if result == 'Tails':
                     winner = ctx.author
-                    DataAccess.addBalanceToPerson(person2, Paymentamount*2)
+                    DataAccess.addBalanceToPerson(person2, Paymentamount)
                     DataAccess.removeBalanceFromPerson(person, Paymentamount)
  
-
-        embed = discord.Embed(
-            title = "The winner is",
-            description = str(winner),
-            colour = discord.Colour.purple()
-        )
-
+        embed = discord.Embed(title = "The winner is", description = str(winner), colour = discord.Colour.purple())
         embed.set_author(name=str(winner.display_name), icon_url=winner.avatar_url)
         embed.set_thumbnail(url="https://media.giphy.com/media/6jqfXikz9yzhS/giphy.gif")
         embed.add_field(name=("They got " + result), value='\u200b', inline=True)
